@@ -8,7 +8,7 @@ export class ApiService {
   private constructor() {
     this.axiosClient = axios.create({
       // Em produção, isso viria do seu arquivo .env (ex: import.meta.env.VITE_API_URL)
-      baseURL: 'http://localhost:8080/api/v1', 
+      baseURL: 'http://localhost:8080/api/v1',
       timeout: 10000, // Aborta a requisição se demorar mais de 10 segundos
       headers: {
         'Content-Type': 'application/json',
