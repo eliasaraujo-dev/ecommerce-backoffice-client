@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "sku": "TECH-001",
+      "name": "Mechanical Keyboard RGB",
+      "description": "Wireless mechanical keyboard with tactile switches.",
+      "price": 12999,
+      "stockQuantity": 45,
+      "status": "ACTIVE",
+      "createdAt": "2026-02-23T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "sku": "TECH-002",
+      "name": "Ergonomic Vertical Mouse",
+      "description": "Reduces wrist strain during long coding sessions.",
+      "price": 5990,
+      "stockQuantity": 0,
+      "status": "OUT_OF_STOCK",
+      "createdAt": "2026-02-22T14:30:00Z"
+    },
+    {
+      "id": 3,
+      "sku": "OFFC-001",
+      "name": "Noise Cancelling Headphones",
+      "description": "Over-ear headphones with active noise cancellation.",
+      "price": 29900,
+      "stockQuantity": 15,
+      "status": "ACTIVE",
+      "createdAt": "2026-02-20T09:15:00Z"
+    },
+    {
+      "id": 4,
+      "sku": "OFFC-002",
+      "name": "Adjustable Standing Desk",
+      "description": "Motorized desk for sitting and standing.",
+      "price": 45000,
+      "stockQuantity": 5,
+      "status": "ACTIVE",
+      "createdAt": "2026-02-18T16:45:00Z"
+    }
+  ]
+}

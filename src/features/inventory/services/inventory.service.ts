@@ -16,16 +16,32 @@ export const InventoryService = {
 
     /**
      * Fetches a paginated list of products from the API.
+     * Adapter applied to work with json-server temporarily.
      * @param page Page number (0-based index)
      * @param size Number of items per page
      */
     getProducts: async (page: number = 0, size: number = 10): Promise<PaginatedResponse<IProduct>> => {
-        const response = await api.get<PaginatedResponse<IProduct>>('/products', {
-            params: { page, size }
-        });
-        return response.data;
-    },
+        // json-server expects 1-based index for pages (_page) and limit (_limit)
+        const jsonServerPage = page + 1;
 
+        // Note: json-server returns an array directly, not the paginated object
+        const response = await api.get<IProduct[]>('/products', {
+            params: { _page: jsonServerPage, _limit: size }
+        });
+
+        // json-server exposes the total number of items in the headers
+        const totalElements = parseInt(response.headers['x-total-count'] || '0', 10);
+        const totalPages = Math.ceil(totalElements / size);
+
+        // We adopt the response to match the Spring Boot contract our UI expects
+        return {
+            content: response.data,
+            totalElements,
+            totalPages,
+            size,
+            number: page // Keeping the 0-based index for our UI state
+        };
+    },
     /**
      * Fetches a single product by its ID.
      */
